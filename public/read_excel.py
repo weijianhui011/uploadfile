@@ -15,6 +15,6 @@ class XLDateinof(object):
         return infolist
 
 if __name__=="__main__":
-    datainfo= XLDateinof(r'F:\unitest\fileupload\test_data\get_params_headers_data.xlsx')
+    datainfo= XLDateinof(r'..\test_data\get_params_headers_data.xlsx')
     alldata = datainfo.get_sheetinfo_by_name('TestData')
     print(alldata)
