@@ -3,7 +3,7 @@ def hosturl():
     return(host)
 
 def uploadpath():
-    uploadpath= 'F:\\unitest\\fileupload\\test_case\\upload'
+    uploadpath= '..\\test_case\\upload'
     return(uploadpath)
 
 mssql_conn_dic={
