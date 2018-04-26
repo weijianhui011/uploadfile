@@ -22,7 +22,7 @@ class MyHTTP(object):
 
         headers = DataALL.get('headers')
         files = DataALL.get('files')
-        resp = requests.get(url,headers=headers,params=params,files=files,timeout=120)
+        resp = requests.get(url,headers=headers,params=params,files=files,timeout=1200)
         return (resp)
 
 
