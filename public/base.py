@@ -39,7 +39,7 @@ def getfilemd5(filename):
     return(f_md5.hexdigest())
 
 def get_data(testfile,sheetname):
-    datainfo=read_excel.XLDateinof(r'F:\unitest\fileupload\test_data\%s'%testfile)
+    datainfo=read_excel.XLDateinof(r'..\test_data\%s'%testfile)
     Data = datainfo.get_sheetinfo_by_name(sheetname)
     return Data
 
@@ -69,7 +69,7 @@ def filelistindir(path):
     for name in g:
         return (name[-1])
 
-path1 = r'F:\unitest\fileupload\test_case\upload\audio'
+path1 = r'..\test_case\upload\audio'
 print(filelistindir(path1))
 
 if __name__=="__main__":
