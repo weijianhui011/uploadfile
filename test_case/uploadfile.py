@@ -15,13 +15,13 @@ dataall=TestData[1][2]
 expectresult=TestData[1][3]
 filelist= base.get_data(testcasefile,'filelist')
 filefortest = filelist[1:]
+filepath = Config.uploadpath()
 print('@@@@@@@@@@@@')
 print(filefortest)
 
 
 @ddt #装饰器在使用前需要将ddt给类使用，!!如果引入的ddt，需要@ddt.ddt
 class PostParams(unittest.TestCase):
-
     def setUp(self):
         endpoint='/nbfile/upload'
         self.url = base.requesturl(endpoint)
@@ -30,10 +30,9 @@ class PostParams(unittest.TestCase):
     @unpack
     def test_post_params(self,filefortest1):
         #上传一个文件判断是否上传成功
-         os.chdir(Config.uploadpath())
+         os.chdir(filepath)
          print(os.getcwd)
          filenameinfolder = filefortest1
-
          md5code = base.getfilemd5(filenameinfolder)
          headers = { 'nb-file-md5': md5code}
          files = {'field1': (filenameinfolder, open(filenameinfolder, 'rb'))}
@@ -56,7 +55,6 @@ class PostParams(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
 
 
 
