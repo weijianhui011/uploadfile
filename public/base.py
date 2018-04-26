@@ -70,7 +70,7 @@ def filelistindir(path):
         return (name[-1])
 
 path1 = r'F:\unitest\fileupload\test_case\upload\audio'
-print(filelistindir(path1))
+#print(filelistindir(path1))
 
 if __name__=="__main__":
     url= 'http://192.168.1.101:9999/nbfile/upload'
