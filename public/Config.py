@@ -1,9 +1,11 @@
+import os
+
 def hosturl():
     host = 'http://192.168.1.101:9999/'
     return(host)
 
 def uploadpath():
-    uploadpath= '..\\test_case\\upload'
+    uploadpath= os.getcwd() + '\\upload'
     return(uploadpath)
 
 mssql_conn_dic={
