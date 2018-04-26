@@ -11,7 +11,7 @@ class PostParams(unittest.TestCase):
 
     def test_post_params(self):
         #上传一个文件判断是否上传成功
-         os.chdir('F:\\unitest\\fileupload\\test_case\\upload')
+         os.chdir('..\\test_case\\upload')
          print(os.getcwd)
          files = {'field1': ("1.txt", open('1.txt', 'rb'))}
          DataAll = {'headers':}
@@ -32,7 +32,7 @@ class PostParams(unittest.TestCase):
 
         @unittest.skip('无条件跳过')
         def test_post_params2(self):
-            os.chdir('F:\\unitest\\fileupload\\test_case\\upload')
+            os.chdir('..\\test_case\\upload')
             files = {'field1': ("1.txt", open('1.txt', 'rb'))}
             r = requests.post(self.url, files=files)
             print(r.text)
