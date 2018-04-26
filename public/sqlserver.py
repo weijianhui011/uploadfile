@@ -47,5 +47,6 @@ def main():
        # row[0], row[1].encode("utf8")
 
 
+
 if __name__ == '__main__':
     main()

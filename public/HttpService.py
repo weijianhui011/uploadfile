@@ -1,6 +1,6 @@
 import requests
 import json
-from public import base
+
 
 
 class MyHTTP(object):
@@ -10,11 +10,20 @@ class MyHTTP(object):
 
     def get(self,url,**DataALL):
         params = DataALL.get('params')
+        id = DataALL.get('id')
         headers = DataALL.get('headers')
         files = DataALL.get('files')
-        resp = requests.get(url,headers=headers,params=params,files=files)
+        resp = requests.get(url,headers=headers,params=params,id = id,files=files)
         text = resp.json()
         return (text)
+
+    def nojsonget(self,url,**DataALL):
+        params = DataALL.get('params')
+
+        headers = DataALL.get('headers')
+        files = DataALL.get('files')
+        resp = requests.get(url,headers=headers,params=params,files=files,timeout=120)
+        return (resp)
 
 
     def post(self,url,**DataALL):
@@ -22,7 +31,7 @@ class MyHTTP(object):
         headers = DataALL.get('headers')
         files = DataALL.get('files')
         try:
-            resp = requests.post(url,headers=headers,params=params,files=files,timeout=3)
+            resp = requests.post(url,headers=headers,params=params,files=files,timeout=5)
             text = resp.json()
             return (text)
         except Exception as e:
