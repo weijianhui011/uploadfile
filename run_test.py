@@ -19,7 +19,7 @@ def send_email(file_name):
     mail_pass = 'Zqnb12345'
 
     sender= 'nbservice@zqnb.com.cn'   #发送邮箱名
-    receivers = ['wh_2002_cn@163.com','1069942031@qq.com','3533437133@qq.com'] #收件人
+    receivers = ['wh_2002_cn@163.com','1069942031@qq.com','3533437133@qq.com','527159802@qq.com'] #收件人
 
     message = MIMEMultipart('related')
 
