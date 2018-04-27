@@ -18,6 +18,7 @@ filefortest = filelist[1:]
 filepath = Config.uploadpath()
 print('@@@@@@@@@@@@')
 print(filefortest)
+print()
 
 
 @ddt #装饰器在使用前需要将ddt给类使用，!!如果引入的ddt，需要@ddt.ddt
@@ -25,28 +26,25 @@ class PostParams(unittest.TestCase):
     def setUp(self):
         endpoint='/nbfile/upload'
         self.url = base.requesturl(endpoint)
-        print(self.url)
     @data (['1.txt'],['1.pdf'],['1.jpg'],['1.xlsx'])
     @unpack
     def test_post_params(self,filefortest1):
         #上传一个文件判断是否上传成功
          os.chdir(filepath)
-         print(os.getcwd)
          filenameinfolder = filefortest1
          md5code = base.getfilemd5(filenameinfolder)
          headers = { 'nb-file-md5': md5code}
          files = {'field1': (filenameinfolder, open(filenameinfolder, 'rb'))}
          DataAll={'headers':headers, 'files':files }
-
          r = HttpService.MyHTTP(self.url).post(self.url, **DataAll)
-         #roo = requests.post(self.url,headers = headers,files = files)
-         #r = roo.json()
          print(r)
          connect = r.get('Success')
          msg = r.get("Message")
          print(connect)
          self.assertEqual(connect,True)
          self.assertEqual(msg,"上传成功")
+         files['field1'][1].close()
+
 
 
     def tearDown(self):
