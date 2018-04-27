@@ -62,6 +62,7 @@ def getfile_id(url,filefortest1):
 
     r = HttpService.MyHTTP(url).post(url, **DataAll)
     file_id = r.get('Data')
+    files['field1'][1].close()
     return file_id
 
 
