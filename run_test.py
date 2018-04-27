@@ -14,11 +14,11 @@ from email.header import Header #定义正文
 #设置smtplib所需的参数
 #下面的发件人，收件人是用于邮件传输的。
 def send_email(file_name):
-    mail_host='smtp.163.com'
-    mail_user= 'wh_2002_cn@163.com'
-    mail_pass = 'Ingrasys001'
+    mail_host='smtp.mxhichina.com'
+    mail_user= 'nbservice@zqnb.com.cn'
+    mail_pass = 'Zqnb12345'
 
-    sender= 'wh_2002_cn@163.com'   #发送邮箱名
+    sender= 'nbservice@zqnb.com.cn'   #发送邮箱名
     receivers = ['wh_2002_cn@163.com','1069942031@qq.com','3533437133@qq.com'] #收件人
 
     message = MIMEMultipart('related')
