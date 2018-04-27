@@ -36,6 +36,7 @@ def getfilemd5(filename):
     f = open(filename, 'rb')
     f_md5 = hashlib.md5()
     f_md5.update(f.read())
+    f.close()
     return(f_md5.hexdigest())
 
 def get_data(testfile,sheetname):
