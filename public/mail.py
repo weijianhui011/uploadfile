@@ -3,6 +3,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart  # 定义附件
 from email.mime.text import MIMEText  # 定义文件正文
 from email.header import Header  # 定义正文
+from public import Config
 sys.path.append('./test_case')
 sys.path.append('./public')
 
@@ -13,12 +14,9 @@ def send_email(filename):
     mail_host = 'smtp.mxhichina.com'
     mail_user = 'nbservice@zqnb.com.cn'
     mail_pass = 'Zqnb12345'
-
     sender = 'nbservice@zqnb.com.cn'  # 发送邮箱名
-    receivers = ['wh_2002_cn@163.com', '1069942031@qq.com', '3533437133@qq.com', '527159802@qq.com']  # 收件人
-
+    receivers = Config.email_address
     message = MIMEMultipart('related')
-
     f = open(filename, 'rb')
     mail_body = f.read()
     att = MIMEText(mail_body, 'base64', 'utf-8')
@@ -26,7 +24,6 @@ def send_email(filename):
     att["Content-Disposition"] = 'attachment;filename="report.html"'
     message.attach(att)
     f.close()
-
     msg = MIMEText(mail_body, 'html', 'utf-8')
     message.attach(msg)
     message['From'] = sender

@@ -9,7 +9,7 @@ class SqlServer:
         self.pwd = pwd  # 密码
         self.db = db  # 数据库名
 
-    def __GetConnect(self):
+    def __get_connect(self):
         if not self.db:
             raise (NameError, "没有设置数据库信息")
             # 连接数据库
@@ -20,19 +20,19 @@ class SqlServer:
         else:
             return cur
 
-    def ExecQuery(self, sql):  # 执行查询语句
-        cur = self.__GetConnect()
+    def exec_query(self, sql):  # 执行查询语句
+        cur = self.__get_connect()
         cur.execute(sql)
         data = cur.fetchall()  # 一次获取全部数据
-        row = cur.fetchone()  # 一次获取一行数据
-        rows = cur.fetchmany(10)  # 获取10行数据
+        # row = cur.fetchone()  # 一次获取一行数据
+        # rows = cur.fetchmany(10)  # 获取10行数据
 
         # 查询完毕后必须关闭连接
         self.conn.close()
         return data
 
-    def ExecNonQuery(self, sql):  # 执行非查询语句
-        cur = self.__GetConnect()
+    def exec_non_query(self, sql):  # 执行非查询语句
+        cur = self.__get_connect()
         cur.execute(sql)
         self.conn.commit()
         self.conn.close()
@@ -41,11 +41,9 @@ class SqlServer:
 def main():
     # 使用sa登录，密码为自设sa登录密码
     ss = SqlServer(**Config.mssql_conn_dic)
-    data = ss.ExecQuery("SELECT * FROM [dbo].[Nb_File]")
+    data = ss.exec_query("SELECT * FROM [dbo].[Nb_File]")
     for row in data:
-        print (row)
-       # row[0], row[1].encode("utf8")
-
+        print(row)
 
 
 if __name__ == '__main__':
