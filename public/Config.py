@@ -2,7 +2,10 @@ import sys
 host_url = 'http://192.168.1.101:9999/'
 upload_path = sys.path[0] + '\\test_case\\upload'
 email_address = [
-    'wh_2002_cn@163.com', '1069942031@qq.com', '3533437133@qq.com', '527159802@qq.com'
+    'wh_2002_cn@163.com',
+    '1069942031@qq.com',
+    '3533437133@qq.com',
+    '527159802@qq.com'
 ]
 mssql_conn_dic = {
     'host': "192.168.1.101",
