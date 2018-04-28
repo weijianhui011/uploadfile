@@ -16,7 +16,7 @@ class PostParams(unittest.TestCase):
     @unpack
     def test_post_params(self, file_for_test):
         #  上传一个文件判断是否上传成功
-        os.chdir(Config.get_upload_path())
+        os.chdir(Config.upload_path)
         file_name_in_folder = file_for_test
         md5code = base.get_file_md5(file_name_in_folder)
         headers = { 'nb-file-md5': md5code}
