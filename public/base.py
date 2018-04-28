@@ -7,19 +7,19 @@ from public import HttpService
 
 
 def request_url(endpoint):
-        host = Config.host_url()
+        host = Config.host_url
         url = ''.join([host, endpoint])
         return url
 
 
 def file_upload_url():
-    host = Config.host_url()
+    host = Config.host_url
     url = ''.join([host, '/nbfile/upload'])
     return url
 
 
 def file_fetch_url():
-    host = Config.host_url()
+    host = Config.host_url
     url = ''.join([host, '/nbfile/Fetch'])
     return url
 
@@ -41,12 +41,12 @@ def get_data(testfile, sheet_name):
 def md5_from_sql(file_id):
     del_query = "SELECT [Md5] FROM [NbFileManagement].[dbo].[Nb_File] where [id] = '%s'" % file_id
     ssmd = sqlserver.SqlServer(**Config.mssql_conn_dic)
-    datamd = ssmd.ExecQuery(del_query)
+    datamd = ssmd.exec_query(del_query)
     return datamd
 
 
 def get_file_id(url, file):
-    os.chdir(Config.get_upload_path())
+    os.chdir(Config.upload_path)
     print(os.getcwd)
     file_name_in_folder = file
     md5code = get_file_md5(file_name_in_folder)
