@@ -20,12 +20,9 @@ def test_video_download():
     url1 = 'http://192.168.1.101:9999/nbfile/Fetch'
     params = {'id': file_id, 'format': 'mp4'}
     DataAll1 = {'headers':headers,'params': params}
-
     r1 = HttpService.MyHTTP(url1).nojsonget(url1, **DataAll1)
-    while True:
-        line = r1.readline()
-        if not line:
-            break
+
+
 
     #date1 = r1.headers
     #print(date1['Content-Disposition'])
