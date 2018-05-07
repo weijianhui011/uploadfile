@@ -28,14 +28,14 @@ class PostParams(unittest.TestCase):
         #endpoint = '/nbfile/Fetch'
         #self.url = base.requesturl(endpoint)
         #print(self.url)
-        self.url1 = base.filefetch_url()
-        print(base.filefetch_url())
+        self.url1 = base.file_fetch_url()
+        print(base.file_fetch_url())
         print(self.url1)
 
     @data(['1.aac'],['1.m4a'],['1.mp3'],['1.wav'])
     @unpack
     def test_video_download(self, filefortest1):
-        file_id = base.getfile_id(base.fileupload_url(),filefortest1 )
+        file_id = base.get_file_id(base.file_upload_url(),filefortest1 )
         print('CCCCCCCCCCCCCCCCCCC')
         print(file_id)
 

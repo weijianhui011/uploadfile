@@ -32,7 +32,7 @@ def test_video_download():
 try:
     i = 0
     tasks = []  # 任务列表
-    task_number = 1000
+    task_number = 1
     while i < task_number:
         time.sleep(sleep_download_time)
         t = threading.Thread(target=test_video_download)

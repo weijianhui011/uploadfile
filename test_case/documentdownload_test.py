@@ -35,7 +35,7 @@ class PostParams(unittest.TestCase):
     @data(['1.doc'],['1.docx'],['1.pdf'],['1.ppt'],['1.txt'],['1.wps'],['1.xlsx'],['1.rar'],['1.zip'],['1.pptx'])
     @unpack
     def test_video_download(self, filefortest1):
-        file_id = base.getfile_id(base.fileupload_url(),filefortest1 )
+        file_id = base.get_file_id(base.file_upload_url(),filefortest1 )
         print('CCCCCCCCCCCCCCCCCCC')
         print(file_id)
 

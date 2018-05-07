@@ -23,7 +23,7 @@ if __name__ == "__main__":
     # 自动化识别需要运行的测试用例
     test_dir = './test_case'
     print(test_dir)
-    discover = unittest.defaultTestLoader.discover(test_dir, pattern='*_demotest.py')
+    discover = unittest.defaultTestLoader.discover(test_dir, pattern='*test.py')
     now = time.strftime("%Y-%m-%d %H_%M_%S")  # 定义当前的时间戳
     filename = './report/' + now + '_result.html'  # 定义文件名
     fp = open(filename, 'wb')
