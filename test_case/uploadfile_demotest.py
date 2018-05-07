@@ -26,8 +26,9 @@ class PostParams(unittest.TestCase):
         endpoint='/nbfile/upload'
         self.url = base.request_url(endpoint)
         print(self.url)
-    #@data(['1.doc'],['1.docx'])
-    @data (['1.doc'],['1.docx'],['1.pdf'],['1.ppt'],['1.txt'],['1.wps'],['1.xlsx'],['1.aac'],['1.m4a'],['1.mp3'],['1.wav'],['1.bmp'],['1.gif'],['1.jpg'],['1.png'],['1.psd'],['1.asf'],['1.avi'],['1.flv'],['1.mkv'],['1.mov'],['1.mp4'],['1.rmvb'],['1.vob'],['1.wmv'],['1.rar'],['1.zip'])
+
+    @data(['1.doc'],['1.docx'])
+    #@data (['1.doc'],['1.docx'],['1.pdf'],['1.ppt'],['1.txt'],['1.wps'],['1.xlsx'],['1.aac'],['1.m4a'],['1.mp3'],['1.wav'],['1.bmp'],['1.gif'],['1.jpg'],['1.png'],['1.psd'],['1.asf'],['1.avi'],['1.flv'],['1.mkv'],['1.mov'],['1.mp4'],['1.rmvb'],['1.vob'],['1.wmv'],['1.rar'],['1.zip'])
     #['1.ppt'],['1.pdf'],['1.jpg'],['1.gif'],['1.png'],['1.bmp'],['1.psd']
     #['1.doc'],['1.docx'],['1.pdf'],['1.ppt'],['1.txt'],['1.wps'],['1.xlsx'],['1.rar'],['1.zip']
     # ['1.aac'],['1.m4a'],['1.mp3'],['1.wav']
