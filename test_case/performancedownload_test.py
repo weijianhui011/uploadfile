@@ -22,8 +22,6 @@ def test_video_download():
     DataAll1 = {'headers':headers,'params': params}
     r1 = HttpService.MyHTTP(url1).nojsonget(url1, **DataAll1)
 
-
-
     #date1 = r1.headers
     #print(date1['Content-Disposition'])
     #r1_content = date1['Content-Disposition']
@@ -34,13 +32,13 @@ def test_video_download():
 try:
     i = 0
     tasks = []  # 任务列表
-    task_number = 1
+    task_number = 1000
     while i < task_number:
         time.sleep(sleep_download_time)
         t = threading.Thread(target=test_video_download)
         tasks.append(t)  # 加入线程池，按需使用
         t.start()  # 多线程并发
         i+=1
-        #print(i)
+        print(i)
 except Exception as e:
     print(e)

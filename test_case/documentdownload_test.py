@@ -28,8 +28,8 @@ class PostParams(unittest.TestCase):
         #endpoint = '/nbfile/Fetch'
         #self.url = base.requesturl(endpoint)
         #print(self.url)
-        self.url1 = base.filefetch_url()
-        print(base.filefetch_url())
+        self.url1 = base.file_fetch_url()
+        print(base.file_fetch_url())
         print(self.url1)
 
     @data(['1.doc'],['1.docx'],['1.pdf'],['1.ppt'],['1.txt'],['1.wps'],['1.xlsx'],['1.rar'],['1.zip'],['1.pptx'])

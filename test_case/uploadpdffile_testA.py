@@ -22,7 +22,7 @@ class PostParams(unittest.TestCase):
 
     def setUp(self):
         endpoint='/nbfile/upload'
-        self.url = base.requesturl(endpoint)
+        self.url = base.request_url(endpoint)
         print(self.url)
     @data(True,False)
     def test_post_params(self,result):

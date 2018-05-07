@@ -16,7 +16,6 @@ class MyHTTP(object):
 
     def nojsonget(self, url, **data_all):
         params = data_all.get('params')
-
         headers = data_all.get('headers')
         files = data_all.get('files')
         resp = requests.get(url, headers=headers, params=params, files=files, timeout=1200)
