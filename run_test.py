@@ -11,10 +11,17 @@ sys.path.append('./public')
 
 
 def report(test_report):  # 查找最新的测试报告
+    print(test_report)
+    cur_dir = os.curdir
+    print(cur_dir + "+++")
+    os.chdir(test_report)
+    print(cur_dir + "+++")
     lists = os.listdir(test_report)  # 返回指定的文件夹包含的文件或者文件夹的名字的列表
+    print(lists)
     lists.sort(key=lambda fn: os.path.getatime(test_report + "\\" + fn))  # 通过sort()方法重新按照时间对目录下的文件进行排序
     report_name = lists[-1]
-    return "./report/" + report_name
+    print(report_name)
+    return  report_name
 
 
 if __name__ == "__main__":
@@ -35,7 +42,8 @@ if __name__ == "__main__":
     )
     runner.run(discover)
     fp.close()
-    os.chdir('.')
+    #os.chdir('.')
     test_reports = './report'  # 定义报告文件目录
+    print(test_reports)
     rep = report(test_reports)
     mail.send_email(rep)

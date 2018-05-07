@@ -1,7 +1,6 @@
 
 
 import unittest
-import os
 from public import HttpService
 from public import base
 from public import Config
