@@ -10,16 +10,12 @@ class MyHTTP(object):
         id = data_all.get('id')
         headers = data_all.get('headers')
         files = data_all.get('files')
-        resp = requests.get(url, headers=headers, params=params, id=id, files=files)
-        text = resp.json()
-        return text
-
-    def nojsonget(self, url, **data_all):
-        params = data_all.get('params')
-        headers = data_all.get('headers')
-        files = data_all.get('files')
-        resp = requests.get(url, headers=headers, params=params, files=files, timeout=1200)
-        return resp
+        try:
+            resp = requests.get(url, headers=headers, params=params, id=id, files=files)
+            text = resp.json()
+            return text
+        except Exception as e:
+            print('GET错误：%s' % e)
 
     def post(self, url, **data_all):
         params = data_all.get('params')
@@ -32,3 +28,9 @@ class MyHTTP(object):
         except Exception as e:
             print('POST错误：%s' % e)
 
+    def nojsonget(self, url, **data_all):
+        params = data_all.get('params')
+        headers = data_all.get('headers')
+        files = data_all.get('files')
+        resp = requests.get(url, headers=headers, params=params, files=files, timeout=1200)
+        return resp
