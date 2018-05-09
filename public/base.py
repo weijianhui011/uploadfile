@@ -6,6 +6,8 @@ from public import sqlserver
 from public import HttpService
 
 
+
+
 def request_url(endpoint):
         host = Config.host_url
         url = ''.join([host, endpoint])
@@ -23,6 +25,13 @@ def file_fetch_url():
     url = ''.join([host, '/nbfile/Fetch'])
     return url
 
+def get_response(url, method, **dataall):
+    myhttp=HttpService.MyHTTP(url)
+    if method == 'get':
+        resp = myhttp.get(url,**dataall)
+    if method == 'post':
+        resp = myhttp.post(url, **dataall)
+    return (resp)
 
 def get_file_md5(filename):
     f = open(filename, 'rb')
